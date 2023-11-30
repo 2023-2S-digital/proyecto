@@ -1,4 +1,4 @@
-# proyecto
+# Proyecto
 Proyecto de Electrónica Digital I
 Se nos pide realizar un modelo que cumpla con los requisitos de tener 2 diferentes entradas y 2 salidas. Para la descripción del comportamiendo de las salidas y la entradas es necesario implementarlo en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA Altera Cyclone IV y esta a su vez se encargue de entregar estas señales a los componentes elegidos. 
 ## Planteamiento del problema: 
