@@ -107,6 +107,9 @@ endmodule
 ``` 
 3). Motor paso a paso: 
 
+![Motor paso a paso](Motor.png)
+
+
 ```
 module motor_paso_a_paso(
   input wire clk, // Señal de reloj
