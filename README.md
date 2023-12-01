@@ -74,7 +74,7 @@ Para describir cada periférico, se deben definir las señales de entrada y sali
 
 1). Modulo infra_rojo: 
 
-![infra_rojo](Sensor.png)
+ ![infra_rojo](Sensor.png)
 
 ```
 module modulo_infrarrojo(
