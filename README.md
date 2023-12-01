@@ -12,24 +12,38 @@ Unos de los mayores gastos en una empresa es el de mano de obra, el almacenaje y
 Para este proyecto se implementará un sistema automatizado de llenado y transporte de empaques. Este proceso consta de dos fases, la primera es el desarrollo del sistema de dispensación, el cual constará de un cubículo donde se agregará el producto a dispensar, debajo de esta sección se encontrará separador de producto, donde se podrá individualizar cada elemento y almacenar hasta 9 unidades de producto; a partir de un motor paso a paso que estará conectado al separador, se permitirá el paso del producto para almacenar las unidades solicitadas a su caja de empaque. La fase dos corresponde a una banda transportadora que movilizará cada caja para que sea llenada y luego transportada a su lugar de distribución, este proceso tendrá una señalización de etapa de progreso y censado con la presencia de un depósito listo para ser llenado. Para el control de cada una de las etapas, se propone diseñar y desarrollar un modelo en lenguaje Verilog que cumpla con los siguientes requisitos:
 
 ### Requisitos del Modelo
+
   - Entradas:
 
-    - Entrada 1 : Señal que indica la presencia de un empaque en la banda transportadora. Esta señal será recibida por medio de un modulo infra-rojo que enviará una señal de alto o bajo según sea el caso de la presencia de un depósito. 
-    - Entrada 2 : Señal que indica la cantidad de producto a ser dispensado en el depósito. Esta cantidad deberá ser proporcionada por el usuario por medio de un teclado matricial. 
+    - Entrada 1 : Señal que indica la presencia de un empaque en la banda transportadora. Esta señal será recibida por medio de un modulo infra-rojo que enviará una señal de alto o bajo según sea el caso de la presencia de un depósito.
+      
+    - Entrada 2 : Señal que indica la cantidad de producto a ser dispensado en el depósito. Esta cantidad deberá ser proporcionada por el usuario por medio de un teclado matricial.
+   
   - Salidas:
 
-    - Salida 1 : Señal que controla el mecanismo de dispensación para llenar el empaque. Se envía una señal a un motor paso a paso sincronizado para tener un máximo de 9 pasos por ciclo. 
-    - Salida 2 : Señal que señaliza la etapa de progreso del proceso de llenado. Esta señalización se realizará por medio de 3 LED's que indicarán que el proceso está en la etapa de llenado, de transporte o ha llegado al final. 
-    - Salida 3 : Señal que controla el mecanismo de movimiento de la banda transportadora. El movimiento de la banda se controla a través de un motor que ayuda a la rotación de los rodillos de la banda y así transportar los depósitos. 
+    - Salida 1 : Señal que controla el mecanismo de dispensación para llenar el empaque. Se envía una señal a un motor paso a paso sincronizado para tener un máximo de 9 pasos por ciclo.
+      
+    - Salida 2 : Señal que señaliza la etapa de progreso del proceso de llenado. Esta señalización se realizará por medio de 3 LED's que indicarán que el proceso está en la etapa de llenado, de transporte o ha llegado al final.
+   
+    - Salida 3 : Señal que controla el mecanismo de movimiento de la banda transportadora. El movimiento de la banda se controla a través de un motor que ayuda a la rotación de los rodillos de la banda y así transportar los depósitos.
+   
+      
 ### Funcionamiento del modelo: 
+
   - Detección de empaque:
+
     - Cuando se detecta un empaque en la banda (Entrada 1), el sistema activa el proceso de llenado.
+      
   - Especificación de cantidad:
+    
     - El sistema solo inicia el proceso de llenado cuando hay un depósito listo para ser llenado y se ha especificado la cantidad de producto con la que se desea llenar el depósito (Entrada 2).
+      
   - Dispensación Automática:
     - La salida 1 controla el mecanismo de dispensación, permitiendo el llenado automático hasta llegar al conteo determinado.
+      
   - Señalización de Progreso:
     - La salida 2 señaliza las diferentes etapas del proceso de llenado, indicando el progreso del sistema.
+      
   - Transporte de depósitos:
     - El sistema activa el movimiento de la banda transportadora cuando se ha cumplido el ciclo de llenado, enviando los contenedores a la zona de almacenado idealmente.
 
@@ -59,6 +73,8 @@ Para este proyecto se implementará un sistema automatizado de llenado y transpo
 Para describir cada periférico, se deben definir las señales de entrada y salida que cada uno va a tener. A continuación, se realiza la descripción en Verilog de cada uno de los periféricos mencionados y cómo están relacionados entre sí de manera general.
 
 1). Modulo infra_rojo: 
+
+![infra_rojo](Sensor.png)
 
 ```
 module modulo_infrarrojo(
