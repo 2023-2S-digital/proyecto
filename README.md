@@ -28,3 +28,14 @@ El objetivo de este proyecto es implementar un sistema de automatización en una
     - La salida 2 señaliza las diferentes etapas del proceso de llenado, indicando el progreso del sistema.
   - Transporte de depósitos:
     - El sistema activa el movimiento de la banda transportadora cuando se ha cumplido el ciclo de llenado, enviando los contenedores a la zona de almacenado idealmente.
+
+## Periféricos utilizados: 
+  - Entrada1: Módulo de Proximidad Infrarrojo Evasor de Obstáculos FC-51.
+    ![Infrarojo](images/)
+  - Entrada 2: Teclado matricial de membrana 4x4.
+    ![Teclado](images/)
+  - Salida 1: Motor Paso a Paso 28BYJ-48 + Módulo Driver Controlador
+    ![PasoaPaso](images/)
+  - Salida 2: Diodos LED Rojo, Amarillo, Verde
+    ![Led](images/)
+  - Salida 3: Motor DC 
