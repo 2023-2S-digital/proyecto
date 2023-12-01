@@ -5,8 +5,7 @@ Como proyecto final y dando cumplimiento con los requisitos planteados en el tra
 
 ## Planteamiento del problema: 
 
-Se decidió resolver un problema de automatización en una planta de llenado y almacenamiento de empaques; donde la dispensación de producto para llenado de envases y desplazamiento al lugar de almacenamiento se realiza de manera manual. 
-
+Unos de los mayores gastos en una empresa es el de mano de obra, el almacenaje y empaquetado de los productos, los desperdicios de materia prima y desperdicios del producto terminado que se generan por fallas en las líneas de producción, además del control de calidad en el proceso de producción. Para este caso se desea automatizar el proceso de empaque de los productos que se fabrican y a su vez el manejo del almacenamiento de estos previos al transporte a sus sitios de distribución, donde la dispensación de producto para llenado de envases y desplazamiento al lugar de almacenamiento se realiza de manera manual, proceso que puede ayuda a reducir costos, tener una mejora en los tiempo y control de calidad. 
 
 ## Descripción del Proyecto
 
