@@ -31,12 +31,21 @@ El objetivo de este proyecto es implementar un sistema de automatización en una
 
 ## Periféricos utilizados: 
   - Entrada1: Módulo de Proximidad Infrarrojo Evasor de Obstáculos FC-51.
+    
     ![Infrarojo](modulo.png)
+    
   - Entrada 2: Teclado matricial de membrana 4x4.
+    
     ![Teclado](teclado.jpg)
+    
   - Salida 1: Motor Paso a Paso 28BYJ-48 + Módulo Driver Controlador
+    
     ![PasoaPaso](pasoapaso.png)
+    
   - Salida 2: Diodos LED Rojo, Amarillo, Verde
+    
     ![Led](leds.jpg)
+    
   - Salida 3: Motor DC
+    
     ![motor](motor.jpg)
