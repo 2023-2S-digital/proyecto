@@ -135,6 +135,8 @@ endmodule
 ```
 
  4). Diodos LED rojo, amarillo, verde: 
+
+ ![Led](Led.png)
  ```
 module leds(
   input wire in_progreso, // Señal de entrada que indica la etapa de progreso del proceso de llenado
