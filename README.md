@@ -67,7 +67,35 @@ Para este proyecto se implementará un sistema automatizado de llenado y transpo
   - Salida 3: Motor DC
     
     ![motor](motor.jpg)
-    
+
+
+### Montaje: 
+
+Para la primera etapa se desarrollo el dispensador que está compuesto de 4 piezas:
+Base o recipiente donde se almacenará el producto a dispensar, tendrá una abertura para el ingreso de unidad al dispensador, y otra abertura para el despacho de unidad de producto,
+![Base](Base.png)
+
+El dispensador, almacenará maximo 9 unidades de producto por carga, el cual girará para llenado y entraga de producto.
+![Dispensador](Dispensador.png)
+
+El eje conectará toda la estructura con el motor paso a paso para el giro del dispensador que permita que cada cubiculo se oriente en la abertura de entrega de producto por cada unidad de tiempo.
+![Eje](Eje.png)
+
+La escobilla es una pieza que genera movilidad del producto dentro del recipiente, permitiendo que no se atore el productod en la abertura de entrega.
+
+![Escobilla](Escobilla.png)
+
+Producto final de dispensador:
+
+![Dispensador](Dis.png)
+![Dispensador](Diss.png)
+
+Para la segunda fase se gera la banda transportadora que tendrá una abertura para que el sensor infrarojo pueda realizar la lextura de las cajas, permitira el soporte del dispensador, y contará con la matriz para el ingreso de la cantidad a dispensar.
+
+
+![Banda transportadora](Banda.png)
+
+
 ## Descrpción en Verilog de periféricos: 
 
 Para describir cada periférico, se deben definir las señales de entrada y salida que cada uno va a tener. A continuación, se realiza la descripción en Verilog de cada uno de los periféricos mencionados y cómo están relacionados entre sí de manera general.
