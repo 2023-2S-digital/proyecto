@@ -1,12 +1,17 @@
-# Proyecto de Electrónica Digital I
-# Proyecto
 
-Como proyecto final y dando cumplimiento con los requisitos planteados en el transcurso de la asignatura se plantearon los siguientes puntos: El sistema debe estar constituido de dos señales de entrada y dos de saliida diferentes. Para el procesamiento de las señales de entrada, se debe implementar las instrucciones en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA (Para nuestro proyecto una Altera Cyclone IV) y esta a su vez se encargue enviar las señales de control a los componentes del sistema para que ejecuten los procesos establecidos de manera articulada.
+# Proyecto de electrónica digital I
+
+Como proyecto final y dando cumplimiento con los requisitos planteados en el transcurso de la asignatura se plantearon los siguientes puntos: El sistema debe estar constituido de dos señales de entrada y dos de salida diferentes. Para el procesamiento de las señales de entrada, se debe implementar las instrucciones en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA (Para nuestro proyecto una Altera Cyclone IV) y esta a su vez se encargue enviar las señales de control a los componentes del sistema para que ejecuten los procesos establecidos de manera articulada.
 
 ## Planteamiento del problema: 
+
 Se decidió resolver un problema de automatización en una planta de llenado y almacenamiento de empaques; donde la dispensación de producto para llenado de envases y desplazamiento al lugar de almacenamiento se realiza de manera manual. 
+
+
 ## Descripción del Proyecto
+
 El objetivo de este proyecto es implementar un sistema de automatización en una planta de llenado y almacenamiento de empaques. Por lo tanto se prpopne implementar una banda transportadora con dispensación y llenado automático por conteo determinado, con señalización de etapa de progreso y censado con la presencia de un depósito listo para ser llenado.   Para ello, se propone diseñar y desarrollar un modelo en lenguaje Verilog que cumpla con los siguientes requisitos:
+
 ### Requisitos del Modelo
   - Entradas:
 
