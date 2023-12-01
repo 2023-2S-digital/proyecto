@@ -1,6 +1,7 @@
 # Proyecto
 Proyecto de Electrónica Digital I
-Se nos pide realizar un modelo que cumpla con los requisitos de tener 2 diferentes entradas y 2 salidas. Para la descripción del comportamiendo de las salidas y la entradas es necesario implementarlo en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA Altera Cyclone IV y esta a su vez se encargue de entregar estas señales a los componentes elegidos. 
+Como proyecto final y dando cumplimiento con los requisitos planteados en el transcurso de la asignatura se plantearon los siguientes puntos: El sistema debe estar constituido de dos señales de entrada y dos de saliida diferentes. Para el procesamiento de las señales de entrada, se debe implementar las instrucciones en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA (Para nuestro proyecto una Altera Cyclone IV) y esta a su vez se encargue enviar las señales de control a los componentes del sistema para que ejecuten los procesos establecidos de manera articulada.
+
 ## Planteamiento del problema: 
 Se decidió resolver un problema de automatización en una planta de llenado y almacenamiento de empaques; donde la dispensación de producto para llenado de envases y desplazamiento al lugar de almacenamiento se realiza de manera manual. 
 ## Descripción del Proyecto
