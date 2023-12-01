@@ -169,7 +169,7 @@ Para realizar el montaje físico de la línea de llenado y la banda transportado
 | Material                                           | Descripción                                                    | Cantidad | Precio Unitario (COP) | Costo Total (COP) |
 | -------------------------------------------------- | -------------------------------------------------------------- | -------- | --------------------- | ----------------- |
 | Placas de Balso de 0.5cm de Grosor                 | Material para la estructura y base del sistema                 | 1        | $6.000                | $6.000            |
-| Palos Redondos de Balso de 0.5cm de Grosor         | Reforzamiento y soporte para componentes                       | 1        | $6.000                | $6.000            |
+| Palos Redondos de Balso de 0.5cm de Grosor         | Reforzamiento y soporte para banda transportadora              | 1        | $6.000                | $6.000            |
 | Palos Cuadrados de Balso de 0.5cm de Grosor        | Estructura y soporte adicional                                 | 4        | $6.000                | $18.000           |
 | Neumático de Llanta                                | Utilizado para la banda transportadora                         | 2        | $1.000                | $2.000            |
 | Motor DC Mini 3000rpm                              | Motor para el movimiento de la banda transportadora            | 1        | $9.000                | $9.000            |
@@ -177,7 +177,7 @@ Para realizar el montaje físico de la línea de llenado y la banda transportado
 | Motor Paso a Paso 28BYJ-48 + Módulo Driver         | Control del mecanismo de dispensación                          | 1        | $20.000               | $20.000           |
 | Teclado Matricial de Membrana 4x4                  | Interfaz de usuario para ingresar la cantidad de producto      | 1        | $7.000                | $7.000            |
 | Módulo de Proximidad Infrarrojo Evasor FC-51       | Detección de empaque en la banda transportadora                | 1        | $5.000                | $5.000            |
-| Tarjeta FPGA Altera Cyclone IV                     | Detección de empaque en la banda transportadora                | 1        | $2.363.777            | $2.363.777        |
+| Tarjeta FPGA Altera Cyclone IV                     | Tarjeta usada para comunicación de perifericos                 | 1        | $2.363.777            | $2.363.777        |
 | **Total**                                          |                                                                |          | **Aproximadamente:**  | ** $2.407.713 **  |
 
 
