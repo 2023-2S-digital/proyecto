@@ -37,5 +37,6 @@ El objetivo de este proyecto es implementar un sistema de automatización en una
   - Salida 1: Motor Paso a Paso 28BYJ-48 + Módulo Driver Controlador
     ![PasoaPaso](pasoapaso.png)
   - Salida 2: Diodos LED Rojo, Amarillo, Verde
-    ![Led](images/leds.jpg)
-  - Salida 3: Motor DC 
+    ![Led](leds.jpg)
+  - Salida 3: Motor DC
+    ![motor](motor.jpg)
