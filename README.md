@@ -3,7 +3,7 @@
 
 Como proyecto final y dando cumplimiento con los requisitos planteados en el transcurso de la asignatura se plantearon los siguientes puntos: El sistema debe estar constituido de dos señales de entrada y dos de salida diferentes. Para el procesamiento de las señales de entrada, se debe implementar las instrucciones en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA (Para nuestro proyecto una Altera Cyclone IV) y esta a su vez se encargue enviar las señales de control a los componentes del sistema para que ejecuten los procesos establecidos de manera articulada.
 
-## Planteamiento del problema: 
+## Planteamiento del problema:  
 
 Unos de los mayores gastos en una empresa es el de mano de obra, el almacenaje y empaquetado de los productos, los desperdicios de materia prima y desperdicios del producto terminado que se generan por fallas en las líneas de producción, además del control de calidad en el proceso de producción. Para este caso se desea automatizar el proceso de empaque de los productos que se fabrican y a su vez el manejo del almacenamiento de estos previos al transporte a sus sitios de distribución, donde la dispensación de producto para llenado de envases y desplazamiento al lugar de almacenamiento se realiza de manera manual, proceso que puede ayudar a reducir costos, tener una mejora en los tiempo y control de calidad. 
 
