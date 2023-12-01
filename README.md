@@ -214,6 +214,10 @@ Para realizar el montaje físico de la línea de llenado y la banda transportado
 
 ![montaje](montaje.jpg)
 
+## Video de funcionamiento
+
+https://drive.google.com/file/d/1tghtkQsvQXv7wupexkE4-K7s3kXEteOY/view?usp=drive_link
+
 ## Presupuesto aproximado 
 
 | Material                                           | Descripción                                                    | Cantidad | Precio Unitario (COP) | Costo Total (COP) |
