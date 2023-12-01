@@ -54,3 +54,132 @@ El objetivo de este proyecto es implementar un sistema de automatización en una
   - Salida 3: Motor DC
     
     ![motor](motor.jpg)
+    
+## Descrpción en Verilog de periféricos: 
+
+Para describir cada periférico, se deben definir las señales de entrada y salida que cada uno va a tener. A continuación, se realiza la descripción en Verilog de cada uno de los periféricos mencionados y cómo están relacionados entre sí de manera general.
+
+1). Modulo infra_rojo: 
+
+```
+module modulo_infrarrojo(
+  input wire in_sensor_banda, // Señal de entrada que indica la presencia de un empaque en la banda transportadora
+  output wire out_dispensacion // Señal de salida que controla el mecanismo de dispensación
+);
+
+  // Lógica para activar la dispensación cuando se detecta un empaque en la banda
+  assign out_dispensacion = in_sensor_banda;
+
+endmodule
+``` 
+
+2). Teclado matricial 4x4: 
+
+```
+module teclado_matricial(
+  input wire clk, // Señal de reloj 
+  input wire [3:0] in_cantidad_producto, // Señal de entrada que indica la cantidad de producto a dispensar
+  output wire out_progreso // Señal de salida que señaliza la etapa de progreso del proceso de llenado
+);
+
+  // Lógica para señalizar el progreso cuando se ha especificado la cantidad de producto
+  assign out_progreso = (in_cantidad_producto > 0);
+
+endmodule
+
+``` 
+3). Motor paso a paso: 
+
+```
+module motor_paso_a_paso(
+  input wire clk, // Señal de reloj
+  input wire [3:0] disp_steps, // Señal de entrada que indica el número de pasos de dispensación
+  output wire out_dispensacion, // Señal de salida que controla el mecanismo de dispensación
+  output wire [3:0] motor_steps // Señal de salida que controla el motor paso a paso
+);
+
+  // Lógica para activar la dispensación y controlar el motor paso a paso
+  assign out_dispensacion = (disp_steps > 0);
+  
+  // Lógica para definir los pasos del motor según la cantidad de pasos de dispensación
+  always @(posedge clk) begin
+    case (disp_steps)
+      1: motor_steps <= 4'b0001; // Primer paso
+      2: motor_steps <= 4'b0010; // Segundo paso
+      // ... se define el resto de los casos según la cantidad máxima de pasos
+      default: motor_steps <= 4'b0000; // Se detiene el motor cuando no hay dispensación
+    endcase
+  end
+
+endmodule
+```
+
+ 4). Diodos LED rojo, amarillo, verde: 
+ ```
+module leds(
+  input wire in_progreso, // Señal de entrada que indica la etapa de progreso del proceso de llenado
+  output wire [2:0] out_leds // Señal de salida que controla los LED's (Rojo, Amarillo, Verde)
+);
+
+  // Lógica para controlar los LED's según la etapa de progreso
+  always @(*) begin
+    case (in_progreso)
+      0: out_leds = 3'b001; // Etapa de llenado (LED Verde encendido)
+      1: out_leds = 3'b010; // Etapa de transporte (LED Amarillo encendido)
+      2: out_leds = 3'b100; // Etapa final (LED Rojo encendido)
+      default: out_leds = 3'b000; // Todos los LED's apagados
+    endcase
+  end
+
+endmodule
+```
+5). Motor DC
+```
+module motor_dc_mini(
+  input wire clk, // Señal de reloj
+  input wire in_movimiento_banda, // Señal de entrada que controla el mecanismo de movimiento de la banda
+  output wire out_movimiento_banda // Señal de salida que controla el motor DC mini
+);
+
+  // Lógica para controlar el movimiento del motor DC mini
+  always @(posedge clk) begin
+    if (in_movimiento_banda) begin
+      // Lógica para activar el movimiento del motor en la dirección deseada
+      // ...
+    end else begin
+      // Lógica para detener el movimiento del motor cuando no se requiere
+      // ...
+    end
+  end
+
+endmodule
+```
+
+## Montaje físico: 
+
+Para realizar el montaje físico de la línea de llenado y la banda transportadora fue necesario construir una maqueta a escala de una línea de producción. Para esto se necesitaron varios materiales como lo son: 
+- Placas de balso de 0.5cm de grosor.
+- Palos redondos y cuadrados de balso de 0.5cm de grosor
+- Caucho
+
+![montaje](montaje.jpg)
+
+## Presupuesto aproximado 
+
+| Material                                           | Descripción                                                    | Cantidad | Precio Unitario (COP) | Costo Total (COP) |
+| -------------------------------------------------- | -------------------------------------------------------------- | -------- | --------------------- | ----------------- |
+| Placas de Balso de 0.5cm de Grosor                 | Material para la estructura y base del sistema                 | 1        | $6.000                | $6.000            |
+| Palos Redondos de Balso de 0.5cm de Grosor         | Reforzamiento y soporte para componentes                       | 1        | $6.000                | $6.000            |
+| Palos Cuadrados de Balso de 0.5cm de Grosor        | Estructura y soporte adicional                                 | 4        | $6.000                | $18.000           |
+| Neumático de Llanta                                | Utilizado para la banda transportadora                         | 2        | $1.000                | $2.000            |
+| Motor DC Mini 3000rpm                              | Motor para el movimiento de la banda transportadora            | 1        | $9.000                | $9.000            |
+| Diodos LED Rojo, Amarillo, Verde                   | Señalización de progreso del sistema                           | 3        | $300                  | $900              |
+| Motor Paso a Paso 28BYJ-48 + Módulo Driver         | Control del mecanismo de dispensación                          | 1        | $20.000               | $20.000           |
+| Teclado Matricial de Membrana 4x4                  | Interfaz de usuario para ingresar la cantidad de producto      | 1        | $7.000                | $7.000            |
+| Módulo de Proximidad Infrarrojo Evasor FC-51       | Detección de empaque en la banda transportadora                | 1        | $5.000                | $5.000            |
+| Tarjeta FPGA Altera Cyclone IV                     | Detección de empaque en la banda transportadora                | 1        | $2.363.777            | $2.363.777        |
+| **Total**                                          |                                                                |          | **Aproximadamente:**  | ** $2.407.713 **  |
+
+
+
+
