@@ -90,6 +90,8 @@ endmodule
 
 2). Teclado matricial 4x4: 
 
+![Teclado matricial 4x4](Teclado.png)
+
 ```
 module teclado_matricial(
   input wire clk, // Señal de reloj 
