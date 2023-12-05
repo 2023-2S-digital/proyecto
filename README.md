@@ -89,23 +89,23 @@ contenedores a la zona de almacenado idealmente.
 
 - **Entrada 1:** Módulo de Proximidad Infrarrojo Evasor de Obstáculos FC-51.
     
-    ![Infrarojo](modulo.png)
+    ![Infrarojo](images/modulo.png)
     
 - **Entrada 2:** Teclado matricial de membrana 4x4.
     
-  ![Teclado](teclado.jpg)
+  ![Teclado](images/teclado.jpg)
     
 - **Salida 1:** Motor Paso a Paso 28BYJ-48 + Módulo Driver Controlador
     
-  ![PasoaPaso](pasoapaso.png)
+  ![PasoaPaso](images/pasoapaso.png)
     
 - **Salida 2:** Diodos LED Rojo, Amarillo, Verde
     
-  ![Led](leds.jpg)
+  ![Led](images/leds.jpg)
     
 - **Salida 3:** Motor DC
     
-  ![motor](motor.jpg)
+  ![motor](images/motor.jpg)
 
 ### Descripción del montaje 
 
@@ -114,32 +114,32 @@ Para la primera etapa se desarrolló el dispensador que está compuesto de 4 pie
 Base o recipiente donde se almacenará el producto a dispensar, tendrá una abertura para el ingreso de unidad al 
 dispensador, y otra abertura para el despacho de unidad de producto
 
-![Base](Base.png)
+![Base](images/Base.png)
 
 El dispensador almacenará máximo 9 unidades de producto por carga, el cual girará para llenado y entrega de producto.
 
-![Dispensador](Dispensador.png)
+![Dispensador](images/Dispensador.png)
 
 El eje conectará toda la estructura con el motor paso a paso para el giro del dispensador que permita que cada cubículo 
 se oriente en la abertura de entrega de producto por cada unidad de tiempo.
 
-![Eje](Eje.png)
+![Eje](images/Eje.png)
 
 La escobilla es una pieza que genera movilidad del producto dentro del recipiente, permitiendo que no se atore el 
 producto en la abertura de entrega.
 
-![Escobilla](Escobilla.png)
+![Escobilla](images/Escobilla.png)
 
 **Producto final de dispensador**
 
-![Dispensador](Dis.jpg)  
-![Dispensador](Diss.jpg)
+![Dispensador](images/Dis.jpg)  
+![Dispensador](images/Diss.jpg)
 
 Para la segunda fase se creará la banda transportadora que tendrá una abertura para que el sensor infrarrojo pueda 
 realizar la lectura de las cajas, permitirá el soporte del dispensador, y contará con la matriz para el ingreso de la 
 cantidad a dispensar.
 
-![Banda transportadora](Banda.png)
+![Banda transportadora](images/Banda.png)
 
 ## Descripción en Verilog de periféricos 
 
@@ -149,7 +149,7 @@ relacionados entre sí de manera general.
 
 ### 1. Modulo infrarrojo
 
- ![infra_rojo](Sensor.png)
+ ![infra_rojo](images/Sensor.png)
 
 ```
 module modulo_infrarrojo(
@@ -165,7 +165,7 @@ endmodule
 
 ### 2. Teclado matricial 4x4 
 
-![Teclado matricial 4x4](Teclado.png)
+![Teclado matricial 4x4](images/Teclado.png)
 
 ```
 module teclado_matricial(
@@ -182,7 +182,7 @@ endmodule
 ``` 
 ### 3. Motor paso a paso 
 
-![Motor paso a paso](Motor.png)
+![Motor paso a paso](images/Motor.png)
 
 ```
 module motor_paso_a_paso(
@@ -210,7 +210,7 @@ endmodule
 
 ### 4. Diodos LED rojo, amarillo, verde 
 
- ![Led](Led.png)
+ ![Led](images/Led.png)
  ```
 module leds(
   input wire in_progreso, // Señal de entrada que indica la etapa de progreso del proceso de llenado
@@ -266,7 +266,7 @@ escala de una línea de producción. Para esto se necesitaron varios materiales 
 - Tornillos y arandelas
 - Silicona
 
-![montaje](montaje.jpg)
+![montaje](images/montaje.jpg)
 
 ## Video de funcionamiento
 
