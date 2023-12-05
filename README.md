@@ -1,106 +1,153 @@
-
 # Proyecto de electrónica digital I  
 
-Como proyecto final y dando cumplimiento con los requisitos planteados en el transcurso de la asignatura se plantearon los siguientes puntos: El sistema debe estar constituido de dos señales de entrada y dos de salida diferentes. Para el procesamiento de las señales de entrada, se debe implementar las instrucciones en lenguaje Verilog con el fin de ingresar esta descripción de hardware a una tarjeta FPGA (Para nuestro proyecto una Altera Cyclone IV) y esta a su vez se encargue enviar las señales de control a los componentes del sistema para que ejecuten los procesos establecidos de manera articulada.
+Como proyecto final y dando cumplimiento con los requisitos planteados en el transcurso de la asignatura se plantearon 
+los siguientes puntos:
 
-## Planteamiento del problema:  
+- El sistema debe estar constituido de dos señales de entrada y dos de salida diferentes. 
+- Para el procesamiento de las señales de entrada, se debe implementar las instrucciones en lenguaje Verilog con el fin 
+de ingresar esta descripción de hardware a una tarjeta FPGA (Para nuestro proyecto una Altera Cyclone IV) y esta, a su 
+vez se encargue enviar las señales de control a los componentes del sistema para que ejecuten los procesos establecidos 
+de manera articulada.
 
-Unos de los mayores gastos en una empresa es el de mano de obra, el almacenaje y empaquetado de los productos, los desperdicios de materia prima y desperdicios del producto terminado que se generan por fallas en las líneas de producción, además del control de calidad en el proceso de producción. Para este caso se desea automatizar el proceso de empaque de los productos que se fabrican y a su vez el manejo del almacenamiento de estos previos al transporte a sus sitios de distribución, donde la dispensación de producto para llenado de envases y desplazamiento al lugar de almacenamiento se realiza de manera manual, proceso que puede ayudar a reducir costos, tener una mejora en los tiempo y control de calidad. 
+## Contenido
+
+- [Planteamiento del problema](#planteamiento-del-problema)
+- [Descripción del Proyecto](#descripción-del-proyecto)
+- [Requisitos del Modelo](#requisitos-del-modelo)
+- [Funcionamiento del modelo](#funcionamiento-del-modelo)
+- [Periféricos utilizados](#periféricos-utilizados)
+- [Descripción en Verilog de periféricos](#descripción-en-verilog-de-periféricos)
+- [Montaje físico](#montaje-físico)
+- [Video de funcionamiento](#video-de-funcionamiento)
+- [Presupuesto aproximado](#presupuesto-aproximado)
+- [Participantes](#participantes)
+- [Licencia](#licencia)
+
+## Planteamiento del problema  
+
+Unos de los mayores gastos en una empresa es el de mano de obra, el almacenaje y empaquetado de los productos, los 
+desperdicios de materia prima y desperdicios del producto terminado que se generan por fallas en las líneas de 
+producción, además del control de calidad en el proceso de producción. Para este caso se desea automatizar el proceso de 
+empaque de los productos que se fabrican y a su vez el manejo del almacenamiento de estos previos al transporte a sus 
+sitios de distribución, donde la dispensación de producto para llenado de envases y desplazamiento al lugar de 
+almacenamiento se realiza de manera manual, proceso que puede ayudar a reducir costos, tener una mejora en los tiempos y 
+control de calidad. 
 
 ## Descripción del Proyecto
 
-Para este proyecto se implementará un sistema automatizado de llenado y transporte de empaques. Este proceso consta de dos fases, la primera es el desarrollo del sistema de dispensación, el cual constará de un cubículo donde se agregará el producto a dispensar, debajo de esta sección se encontrará separador de producto, donde se podrá individualizar cada elemento y almacenar hasta 9 unidades de producto; a partir de un motor paso a paso que estará conectado al separador, se permitirá el paso del producto para almacenar las unidades solicitadas a su caja de empaque. La fase dos corresponde a una banda transportadora que movilizará cada caja para que sea llenada y luego transportada a su lugar de distribución, este proceso tendrá una señalización de etapa de progreso y censado con la presencia de un depósito listo para ser llenado. Para el control de cada una de las etapas, se propone diseñar y desarrollar un modelo en lenguaje Verilog que cumpla con los siguientes requisitos:
+Para este proyecto se implementará un sistema automatizado de llenado y transporte de empaques.   
+
+Este proceso consta de dos fases, la primera es el desarrollo del sistema de dispensación, el cual constará de un 
+cubículo donde se agregará el producto a dispensar, debajo de esta sección se encontrará separador de producto, donde se 
+podrá individualizar cada elemento y almacenar hasta 9 unidades de producto; a partir de un motor paso a paso que estará 
+conectado al separador, se permitirá el paso del producto para almacenar las unidades solicitadas a su caja de empaque. 
+
+La fase dos corresponde a una banda transportadora que movilizará cada caja para que sea llenada y luego transportada a 
+su lugar de distribución, este proceso tendrá una señalización de etapa de progreso y censado con la presencia de un 
+depósito listo para ser llenado. 
+
+Para el control de cada una de las etapas, se propone diseñar y desarrollar un modelo en lenguaje Verilog que cumpla con 
+los requisitos a continuación
 
 ### Requisitos del Modelo
 
-  - Entradas:
-
-    - Entrada 1 : Señal que indica la presencia de un empaque en la banda transportadora. Esta señal será recibida por medio de un modulo infra-rojo que enviará una señal de alto o bajo según sea el caso de la presencia de un depósito.
-      
-    - Entrada 2 : Señal que indica la cantidad de producto a ser dispensado en el depósito. Esta cantidad deberá ser proporcionada por el usuario por medio de un teclado matricial.
+**Entradas**
+- **Entrada 1:** Señal que indica la presencia de un empaque en la banda transportadora. Esta señal será recibida por 
+medio de un módulo infra-rojo que enviará una señal de alto o bajo según sea el caso de la presencia de un depósito.
+- **Entrada 2:** Señal que indica la cantidad de producto a ser dispensado en el depósito. Esta cantidad deberá ser 
+proporcionada por el usuario por medio de un teclado matricial.
    
-  - Salidas:
+**Salidas**
+- **Salida 1:** Señal que controla el mecanismo de dispensación para llenar el empaque. Se envía una señal a un motor 
+paso a paso sincronizado para tener un máximo de 9 pasos por ciclo.
+- **Salida 2:** Señal que señaliza la etapa de progreso del proceso de llenado. Esta señalización se realizará por 
+medio de 3 LED que indicarán que el proceso está en la etapa de llenado, de transporte o ha llegado al final.
+- **Salida 3:** Señal que controla el mecanismo de movimiento de la banda transportadora. El movimiento de la banda se 
+controla a través de un motor que ayuda a la rotación de los rodillos de la banda y así transportar los depósitos.
 
-    - Salida 1 : Señal que controla el mecanismo de dispensación para llenar el empaque. Se envía una señal a un motor paso a paso sincronizado para tener un máximo de 9 pasos por ciclo.
-      
-    - Salida 2 : Señal que señaliza la etapa de progreso del proceso de llenado. Esta señalización se realizará por medio de 3 LED's que indicarán que el proceso está en la etapa de llenado, de transporte o ha llegado al final.
-   
-    - Salida 3 : Señal que controla el mecanismo de movimiento de la banda transportadora. El movimiento de la banda se controla a través de un motor que ayuda a la rotación de los rodillos de la banda y así transportar los depósitos.
-   
-      
-### Funcionamiento del modelo: 
+### Funcionamiento del modelo 
 
-  - Detección de empaque:
+**Detección de empaque**
+- Cuando se detecta un empaque en la banda (Entrada 1), el sistema activa el proceso de llenado.
+      
+**Especificación de cantidad**
+- El sistema solo inicia el proceso de llenado cuando hay un depósito listo para ser llenado y se ha especificado la 
+cantidad de producto con la que se desea llenar el depósito (Entrada 2).
+      
+**Dispensación Automática**
+- La salida 1 controla el mecanismo de dispensación, permitiendo el llenado automático hasta llegar al conteo 
+determinado.
+      
+**Señalización de Progreso**
+- La salida 2 señaliza las diferentes etapas del proceso de llenado, indicando el progreso del sistema.
+      
+**Transporte de depósitos**
+- El sistema activa el movimiento de la banda transportadora cuando se ha cumplido el ciclo de llenado, enviando los 
+contenedores a la zona de almacenado idealmente.
 
-    - Cuando se detecta un empaque en la banda (Entrada 1), el sistema activa el proceso de llenado.
-      
-  - Especificación de cantidad:
-    
-    - El sistema solo inicia el proceso de llenado cuando hay un depósito listo para ser llenado y se ha especificado la cantidad de producto con la que se desea llenar el depósito (Entrada 2).
-      
-  - Dispensación Automática:
-    - La salida 1 controla el mecanismo de dispensación, permitiendo el llenado automático hasta llegar al conteo determinado.
-      
-  - Señalización de Progreso:
-    - La salida 2 señaliza las diferentes etapas del proceso de llenado, indicando el progreso del sistema.
-      
-  - Transporte de depósitos:
-    - El sistema activa el movimiento de la banda transportadora cuando se ha cumplido el ciclo de llenado, enviando los contenedores a la zona de almacenado idealmente.
+## Periféricos utilizados
 
-## Periféricos utilizados: 
-  - Entrada1: Módulo de Proximidad Infrarrojo Evasor de Obstáculos FC-51.
+- **Entrada 1:** Módulo de Proximidad Infrarrojo Evasor de Obstáculos FC-51.
     
     ![Infrarojo](modulo.png)
     
-  - Entrada 2: Teclado matricial de membrana 4x4.
+- **Entrada 2:** Teclado matricial de membrana 4x4.
     
-    ![Teclado](teclado.jpg)
+  ![Teclado](teclado.jpg)
     
-  - Salida 1: Motor Paso a Paso 28BYJ-48 + Módulo Driver Controlador
+- **Salida 1:** Motor Paso a Paso 28BYJ-48 + Módulo Driver Controlador
     
-    ![PasoaPaso](pasoapaso.png)
+  ![PasoaPaso](pasoapaso.png)
     
-  - Salida 2: Diodos LED Rojo, Amarillo, Verde
+- **Salida 2:** Diodos LED Rojo, Amarillo, Verde
     
-    ![Led](leds.jpg)
+  ![Led](leds.jpg)
     
-  - Salida 3: Motor DC
+- **Salida 3:** Motor DC
     
-    ![motor](motor.jpg)
+  ![motor](motor.jpg)
 
+### Descripción del montaje 
 
-### Montaje: 
+Para la primera etapa se desarrolló el dispensador que está compuesto de 4 piezas:
 
-Para la primera etapa se desarrollo el dispensador que está compuesto de 4 piezas:
-Base o recipiente donde se almacenará el producto a dispensar, tendrá una abertura para el ingreso de unidad al dispensador, y otra abertura para el despacho de unidad de producto,
+Base o recipiente donde se almacenará el producto a dispensar, tendrá una abertura para el ingreso de unidad al 
+dispensador, y otra abertura para el despacho de unidad de producto
+
 ![Base](Base.png)
 
-El dispensador, almacenará maximo 9 unidades de producto por carga, el cual girará para llenado y entraga de producto.
+El dispensador almacenará máximo 9 unidades de producto por carga, el cual girará para llenado y entrega de producto.
+
 ![Dispensador](Dispensador.png)
 
-El eje conectará toda la estructura con el motor paso a paso para el giro del dispensador que permita que cada cubiculo se oriente en la abertura de entrega de producto por cada unidad de tiempo.
+El eje conectará toda la estructura con el motor paso a paso para el giro del dispensador que permita que cada cubículo 
+se oriente en la abertura de entrega de producto por cada unidad de tiempo.
+
 ![Eje](Eje.png)
 
-La escobilla es una pieza que genera movilidad del producto dentro del recipiente, permitiendo que no se atore el productod en la abertura de entrega.
+La escobilla es una pieza que genera movilidad del producto dentro del recipiente, permitiendo que no se atore el 
+producto en la abertura de entrega.
 
 ![Escobilla](Escobilla.png)
 
-Producto final de dispensador:
+**Producto final de dispensador**
 
-![Dispensador](Dis.png)
-![Dispensador](Diss.png)
+![Dispensador](Dis.jpg)  
+![Dispensador](Diss.jpg)
 
-Para la segunda fase se gera la banda transportadora que tendrá una abertura para que el sensor infrarojo pueda realizar la lextura de las cajas, permitira el soporte del dispensador, y contará con la matriz para el ingreso de la cantidad a dispensar.
-
+Para la segunda fase se creará la banda transportadora que tendrá una abertura para que el sensor infrarrojo pueda 
+realizar la lectura de las cajas, permitirá el soporte del dispensador, y contará con la matriz para el ingreso de la 
+cantidad a dispensar.
 
 ![Banda transportadora](Banda.png)
 
+## Descripción en Verilog de periféricos 
 
-## Descrpción en Verilog de periféricos: 
+Para describir cada periférico, se deben definir las señales de entrada y salida que cada uno va a tener. 
+A continuación, se realiza la descripción en Verilog de cada uno de los periféricos mencionados y cómo están 
+relacionados entre sí de manera general.
 
-Para describir cada periférico, se deben definir las señales de entrada y salida que cada uno va a tener. A continuación, se realiza la descripción en Verilog de cada uno de los periféricos mencionados y cómo están relacionados entre sí de manera general.
-
-1). Modulo infra_rojo: 
+### 1. Modulo infrarrojo
 
  ![infra_rojo](Sensor.png)
 
@@ -116,7 +163,7 @@ module modulo_infrarrojo(
 endmodule
 ``` 
 
-2). Teclado matricial 4x4: 
+### 2. Teclado matricial 4x4 
 
 ![Teclado matricial 4x4](Teclado.png)
 
@@ -133,10 +180,9 @@ module teclado_matricial(
 endmodule
 
 ``` 
-3). Motor paso a paso: 
+### 3. Motor paso a paso 
 
 ![Motor paso a paso](Motor.png)
-
 
 ```
 module motor_paso_a_paso(
@@ -162,7 +208,7 @@ module motor_paso_a_paso(
 endmodule
 ```
 
- 4). Diodos LED rojo, amarillo, verde: 
+### 4. Diodos LED rojo, amarillo, verde 
 
  ![Led](Led.png)
  ```
@@ -183,7 +229,9 @@ module leds(
 
 endmodule
 ```
-5). Motor DC
+
+### 5. Motor DC
+
 ```
 module motor_dc_mini(
   input wire clk, // Señal de reloj
@@ -205,12 +253,18 @@ module motor_dc_mini(
 endmodule
 ```
 
-## Montaje físico: 
+## Montaje físico 
 
-Para realizar el montaje físico de la línea de llenado y la banda transportadora fue necesario construir una maqueta a escala de una línea de producción. Para esto se necesitaron varios materiales como lo son: 
-- Placas de balso de 0.5cm de grosor.
-- Palos redondos y cuadrados de balso de 0.5cm de grosor
+Para realizar el montaje físico de la línea de llenado y la banda transportadora fue necesario construir una maqueta a 
+escala de una línea de producción. Para esto se necesitaron varios materiales como lo son:
+
+- Placa de balso de 50x5x910 mm
+- Placa de balso de 75x5x910 mm
+- Palos redondos y cuadrados de balso de 5 mm de grosor
 - Caucho
+- Cinta
+- Tornillos y arandelas
+- Silicona
 
 ![montaje](montaje.jpg)
 
@@ -220,20 +274,27 @@ https://drive.google.com/file/d/1tghtkQsvQXv7wupexkE4-K7s3kXEteOY/view?usp=drive
 
 ## Presupuesto aproximado 
 
-| Material                                           | Descripción                                                    | Cantidad | Precio Unitario (COP) | Costo Total (COP) |
-| -------------------------------------------------- | -------------------------------------------------------------- | -------- | --------------------- | ----------------- |
-| Placas de Balso de 0.5cm de Grosor                 | Material para la estructura y base del sistema                 | 1        | $6.000                | $6.000            |
-| Palos Redondos de Balso de 0.5cm de Grosor         | Reforzamiento y soporte para banda transportadora              | 1        | $6.000                | $6.000            |
-| Palos Cuadrados de Balso de 0.5cm de Grosor        | Estructura y soporte adicional                                 | 4        | $6.000                | $18.000           |
-| Neumático de Llanta                                | Utilizado para la banda transportadora                         | 2        | $1.000                | $2.000            |
-| Motor DC Mini 3000rpm                              | Motor para el movimiento de la banda transportadora            | 1        | $9.000                | $9.000            |
-| Diodos LED Rojo, Amarillo, Verde                   | Señalización de progreso del sistema                           | 3        | $300                  | $900              |
-| Motor Paso a Paso 28BYJ-48 + Módulo Driver         | Control del mecanismo de dispensación                          | 1        | $20.000               | $20.000           |
-| Teclado Matricial de Membrana 4x4                  | Interfaz de usuario para ingresar la cantidad de producto      | 1        | $7.000                | $7.000            |
-| Módulo de Proximidad Infrarrojo Evasor FC-51       | Detección de empaque en la banda transportadora                | 1        | $5.000                | $5.000            |
-| Tarjeta FPGA Altera Cyclone IV                     | Tarjeta usada para comunicación de perifericos                 | 1        | $2.363.777            | $2.363.777        |
-| **Total**                                          |                                                                |          | **Aproximadamente:**  | ** $2.407.713 **  |
+| Material                                     | Descripción                                               | Cantidad | Precio Unitario (COP) | Costo Total (COP) |
+|----------------------------------------------|-----------------------------------------------------------|----------|-----------------------|-------------------|
+| Placas de Balso de 0.5cm de Grosor           | Material para la estructura y base del sistema            | 1        | $6.000                | $6.000            |
+| Palos Redondos de Balso de 0.5cm de Grosor   | Reforzamiento y soporte para banda transportadora         | 1        | $6.000                | $6.000            |
+| Palos Cuadrados de Balso de 0.5cm de Grosor  | Estructura y soporte adicional                            | 4        | $6.000                | $18.000           |
+| Neumático de Llanta                          | Utilizado para la banda transportadora                    | 2        | $1.000                | $2.000            |
+| Motor DC Mini 3000rpm                        | Motor para el movimiento de la banda transportadora       | 1        | $9.000                | $9.000            |
+| Diodos LED Rojo, Amarillo, Verde             | Señalización de progreso del sistema                      | 3        | $300                  | $900              |
+| Motor Paso a Paso 28BYJ-48 + Módulo Driver   | Control del mecanismo de dispensación                     | 1        | $20.000               | $20.000           |
+| Teclado Matricial de Membrana 4x4            | Interfaz de usuario para ingresar la cantidad de producto | 1        | $7.000                | $7.000            |
+| Módulo de Proximidad Infrarrojo Evasor FC-51 | Detección de empaque en la banda transportadora           | 1        | $5.000                | $5.000            |
+| Tarjeta FPGA Altera Cyclone IV               | Tarjeta usada para comunicación de periféricos            | 1        | $2.363.777            | $2.363.777        |
+| **Total**                                    |                                                           |          | **Aproximadamente:**  | **$2.407.713**    |
 
 
+## Participantes
 
+- [Alvaro Arturo Montenegro Silva](https://github.com/aamontenegros)
+- [Juan Manuel Rojas Luna](https://github.com/JuanLunaG)
+- [Juan David Vega Avila](https://github.com/JuanD272)
 
+## Licencia
+
+GNU General Public License v3.0. Consulte el [Archivo de licencia](LICENSE) para obtener más información.
