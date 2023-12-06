@@ -253,6 +253,10 @@ module motor_dc_mini(
 endmodule
 ```
 
+### 6. Montaje completo
+
+![RTL](images/RTL.png)
+
 ## Montaje físico 
 
 Para realizar el montaje físico de la línea de llenado y la banda transportadora fue necesario construir una maqueta a 
